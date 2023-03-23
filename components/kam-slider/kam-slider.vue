@@ -41,7 +41,7 @@
 <script>
 import Swiper from 'swiper';
 import 'swiper/css/swiper.css';
-import { Icon } from '@iconify/vue2';
+// import { Icon } from '@iconify/vue2';
 export default {
 		props: ["data", "url"],
 		mounted() {
@@ -66,7 +66,7 @@ export default {
 
 		},
 		components: {
-			Icon,
+			// Icon,
 		}
 	}
 </script>

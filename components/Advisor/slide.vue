@@ -20,10 +20,10 @@
 </template>
 
 <script>
-import { Icon } from '@iconify/vue2';
+// import { Icon } from '@iconify/vue2';
 export default {
 	components: {
-		Icon,
+		// Icon,
 	},
 	props: ['title', 'text', 'date', 'reviewer', 'avatar'],
 }

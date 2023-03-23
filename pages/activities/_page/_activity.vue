@@ -16,7 +16,7 @@ import {Api} from '../../../api/api';
 import Heading from "../../../components/content/heading";
 import Dynamic from "../../../components/dynamic";
 import Grid from "../../../components/grid/grid";
-import AnimatedNumber from "animated-number-vue";
+// import AnimatedNumber from "animated-number-vue";
 import $ from 'jquery';
 export default {
     name: 'activitySlug',
@@ -25,7 +25,7 @@ export default {
         Dynamic,
         Heading,
         PageHeader,
-        AnimatedNumber
+        // AnimatedNumber
     },
     data() {
         return {

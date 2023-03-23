@@ -35,11 +35,11 @@
 import Swiper from 'swiper';
 import 'swiper/css/swiper.css';
 import slide from './slide';
-import { Icon } from '@iconify/vue2';
+// import { Icon } from '@iconify/vue2';
 export default {
 	components: {
 		slide,
-		Icon,
+		// Icon,
 	},
 	data() {
 		return {
