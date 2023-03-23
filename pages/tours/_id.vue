@@ -169,8 +169,8 @@
 </template>
 
 <script>
-import InfoSlider from "../../components/infoSlider/infoSlider";
-import infoSliderOutside from "../../components/infoSlider/infoSliderOutside";
+// import InfoSlider from "../../components/infoSlider/infoSlider";
+// import infoSliderOutside from "../../components/infoSlider/infoSliderOutside";
 import VideoEmbed from "../../components/content/videoEmbed";
 import PageHeader from "../../components/content/pageHeader";
 import contentImage from "../../components/content/contentImage";
@@ -197,13 +197,13 @@ export default {
         HeadingStatic,
         PageHeader,
         VideoEmbed,
-        InfoSlider,
-        infoSliderOutside,
+        // InfoSlider,
+        // infoSliderOutside,
         contentImage,
         animButton,
         DynamicInfo,
         imgAnimation,
-        Slick: () => import("vue-slick")
+        // Slick: () => import("vue-slick")
     },
     asyncData({route, params, error, payload, store}) {
         let lang = "";
@@ -233,7 +233,7 @@ export default {
         return {
             data: "",
             seo: "",
-            slickComp: false,
+            // slickComp: false,
             screen: this.$store.getters.SCREEN,
             count_background: 0,
             blockAfterPrice: '',
@@ -286,13 +286,13 @@ export default {
         };
     },
     computed: {
-        slickContentOptions() {
-            return {
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                infinite: true
-            };
-        },
+        // slickContentOptions() {
+        //     return {
+        //         slidesToShow: 1,
+        //         slidesToScroll: 1,
+        //         infinite: true
+        //     };
+        // },
     },
     watch: {
         $route() {
@@ -418,9 +418,9 @@ export default {
             {name: this.data ? this.data.name : ""}
         ];
         this.$store.dispatch("changeBreadcrumbs", breadCrumbs);
-        this.$nextTick(function () {
-            this.slickComp = "Slick";
-        });
+        // this.$nextTick(function () {
+        //     this.slickComp = "Slick";
+        // });
         this.parserHtmlTopContentBlock();
 
     },

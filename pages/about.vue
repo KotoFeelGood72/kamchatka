@@ -44,7 +44,7 @@
         </client-only>
 
         <ContactQueue :isAboutPage="true"/>
-        <TripadvisorReviews/>
+        <!-- <TripadvisorReviews/> -->
     </div>
 </template>
 <script>
@@ -56,12 +56,12 @@ import {Api} from '../api/api';
 import parallax from '../components/parallax/index';
 import Vue from 'vue';
 import ContactQueue from '../components/ContactQueue/ContactQueue'
-import TripadvisorReviews from "../components/content/TripadvisorReviews";
+// import TripadvisorReviews from "../components/content/TripadvisorReviews";
 
 export default {
     name: 'aboutUs',
     components: {
-        TripadvisorReviews,
+        // TripadvisorReviews,
         PageHeader,
         Heading,
         ContentImage,

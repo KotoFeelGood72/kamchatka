@@ -159,70 +159,70 @@
         components: {
             VideoEmbed,
             // Modal,
-            Slick: () => import("vue-slick")
+            // Slick: () => import("vue-slick")
         },
-        mounted: function () {
-            this.$nextTick(function () {
-                this.slickComp = "Slick";
-            });
+        // mounted: function () {
+        //     this.$nextTick(function () {
+        //         this.slickComp = "Slick";
+        //     });
 
-        },
-        created() {
-            this.$store.dispatch("changeSliderCount");
-            if(process.client) window.addEventListener("scroll", this.onScroll);
-            this.currentVideoEmbed = this.data[0].video
-        },
+        // },
+        // created() {
+        //     this.$store.dispatch("changeSliderCount");
+        //     if(process.client) window.addEventListener("scroll", this.onScroll);
+        //     this.currentVideoEmbed = this.data[0].video
+        // },
         destroyed() {
             window.removeEventListener("scroll", this.onScroll);
         },
         computed: {
             ...mapGetters(['SCREEN']),
-            slickContentOptions() {
-                return {
-                    rows: 0,
-                    slidesToShow: 1,
-                    asNavFor: ".slider-thumbs." + this.sliderCountRef,
-                    arrows: false
-                };
-            },
-            slickThumbsOptions() {
-                return {
-                    arrows: false,
-                    slidesToShow: 1,
-                    fade: false,
-                    rows: 0,
-                    asNavFor: ".slider-content." + this.sliderCountRef
-                };
-            }
+            // slickContentOptions() {
+            //     return {
+            //         rows: 0,
+            //         slidesToShow: 1,
+            //         asNavFor: ".slider-thumbs." + this.sliderCountRef,
+            //         arrows: false
+            //     };
+            // },
+            // slickThumbsOptions() {
+            //     return {
+            //         arrows: false,
+            //         slidesToShow: 1,
+            //         fade: false,
+            //         rows: 0,
+            //         asNavFor: ".slider-content." + this.sliderCountRef
+            //     };
+            // }
         },
         data() {
             return {
-                slickComp: false,
-                sliderCount: 1,
-                sliderCountRef: this.$store.getters.getSliderCount(),
+                // slickComp: false,
+                // sliderCount: 1,
+                // sliderCountRef: this.$store.getters.getSliderCount(),
                 currentVideoEmbed: '',
                 screen: this.$store.getters.SCREEN
             };
         },
-        filters: {
-            countSlides: function (value) {
-                if (!value) return "";
-                return ("00" + value).slice(-2);
-            }
-        },
+        // filters: {
+        //     countSlides: function (value) {
+        //         if (!value) return "";
+        //         return ("00" + value).slice(-2);
+        //     }
+        // },
         methods: {
             currentVideo(thumbVideo) {
                 this.currentVideoEmbed = thumbVideo
                 // console.log(this.currentVideoEmbed)
                 this.$refs.modalVideo12.open()
             },
-            handleAfterChange(event, slick, currentSlide) {
-                this.sliderCount = currentSlide + 1;
-            },
-            changeSlide(type) {
-                this.$refs[`slick-content ${this.sliderCountRef}`][type]();
-                return false;
-            },
+            // handleAfterChange(event, slick, currentSlide) {
+            //     this.sliderCount = currentSlide + 1;
+            // },
+            // changeSlide(type) {
+            //     this.$refs[`slick-content ${this.sliderCountRef}`][type]();
+            //     return false;
+            // },
             onScroll() {
                 const rect = this.$refs.slider.getBoundingClientRect();
                 if (rect.top - rect.height < 0) {
