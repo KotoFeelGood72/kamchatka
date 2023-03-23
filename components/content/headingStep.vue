@@ -1,14 +1,11 @@
 <template>
-    <component v-bind:class="[{ 'animate-route' : this.getRouterStatus() && !stepAnimate && !modalProps, 'animate-load' : !this.getRouterStatus() && !stepAnimate && !modalProps}, classes]" class="animated fadeInLeft" :is="this.tag ? this.tag : 'h2'">
+    <component :is="this.tag ? this.tag : 'h2'">
         <slot/>
     </component>
 </template>
 
 <script>
-// import Vue from 'vue';
 import {mapGetters} from 'vuex'
-// import VueAnimateOnScroll from 'vue-animate-onscroll';
-// Vue.use(VueAnimateOnScroll);
 export default {
     name: 'heading',
     props: [

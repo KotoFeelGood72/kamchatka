@@ -22,7 +22,6 @@ export default {
 
         {src: '~/plugins/vue-mask.js', ssr: false},
         {src: '~/plugins/vue-particle-effect-buttons.js', mode: 'client', ssr: false},
-        {src: '~/plugins/vue-social-sharing.js'},
         {src: '~/plugins/analytics.js', mode: 'client'},
     ],
     /*

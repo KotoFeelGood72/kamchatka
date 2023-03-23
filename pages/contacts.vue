@@ -7,12 +7,12 @@
                 <Heading tag="h2" color="white"><span v-html="data.intro.title"></span></Heading>
                 <div v-for="(item, index) in data.contacts" :key="index" :class="'block-'+index">
                     <div v-if="item.showSocial" class="contacts__row">
-                        <ContactUs v-animate-onscroll.repeat="'animated fadeInLeft'" style="animation-delay: 0.3s" :contactsData="item" :notShowContacts="true" classPage="text animated-trim"/>
+                        <ContactUs :contactsData="item" :notShowContacts="true" classPage="text"/>
                     </div>
                     <Heading v-if="!item.showSocial" tag="h2" color="lightBlue">{{ item.title }}</Heading>
-                    <p v-animate-onscroll.repeat="'animated fadeInLeft'" style="animation-delay: 0.3s" v-if="item.smallText" class="text--small animated-trim" v-html="item.smallText"/>
-                    <p v-animate-onscroll.repeat="'animated fadeInLeft'" style="animation-delay: 0.3s" v-if="item.text" class="text contacts__data animated-trim" v-html="item.text + (item.additionalText ? item.additionalText : '')"/>
-                    <p v-animate-onscroll.repeat="'animated fadeInLeft'" style="animation-delay: 0.3s" class="text--small text--blue animated-trim" v-if="item.smallBlueText" v-html="item.smallBlueText"/>
+                    <p v-if="item.smallText" class="text--small" v-html="item.smallText"/>
+                    <p v-if="item.text" class="text contacts__data" v-html="item.text + (item.additionalText ? item.additionalText : '')"/>
+                    <p class="text--small text--blue" v-if="item.smallBlueText" v-html="item.smallBlueText"/>
                 </div>
             </div>
         </div>
@@ -24,9 +24,6 @@ import ContactUs from '../shared/layouts/ContactUs';
 import {Api} from '../api/api';
 import PageHeader from "../components/content/pageHeader";
 import parallax from '../components/parallax/index';
-// import VueAnimateOnScroll from "vue-animate-onscroll";
-// import Vue from "vue";
-Vue.use(VueAnimateOnScroll);
 
 export default {
     name: 'contacts',
@@ -106,9 +103,6 @@ export default {
     @import "~assets/scss/config";
     @import "~assets/scss/mixins";
     @import "wow.js/css/libs/animate.css";
-    .animated-trim{
-        opacity: 0;
-    }
     .contacts {
         background-image: url('~assets/img/contacts/bg-section.png');
         background-color: color(black);

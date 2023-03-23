@@ -562,9 +562,6 @@ export default {
     font-family: -apple-system;
 }
 
-.animated-trim {
-    opacity: 0;
-}
 
 .slick-stages {
     height: 100%;

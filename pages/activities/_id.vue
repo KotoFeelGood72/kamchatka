@@ -15,10 +15,8 @@
                     v-html="activity.intro.title"
                 />
                 <div
-                    v-animate-onscroll.repeat="'animated fadeInLeft'"
-                    style="animation-delay: 0.5s"
                     v-if="activity.intro.text"
-                    class="text--small animated-trim upper-video__content text-controller"
+                    class="text--small upper-video__content text-controller"
                     v-html="activity.intro.text"
                 />
                 <div v-if="activity.intro.video && activity.intro.videoImg" class="activity-slug__video">
@@ -39,10 +37,8 @@
                     v-html="activity.intro.bottomTitle"
                 />
                 <div
-                    v-animate-onscroll.repeat="'animated fadeInLeft'"
-                    style="animation-delay: 0.5s"
                     v-if="activity.intro.bottomText"
-                    class="text--small animated-trim text-controller"
+                    class="text--small text-controller"
                     v-html="activity.intro.bottomText"
                 />
             </div>
@@ -83,10 +79,6 @@ import { Api } from "../../api/api";
 import ContentImage from "../../components/content/contentImage";
 import VideoEmbed from "../../components/content/videoEmbed";
 import Grid from "../../components/grid/grid";
-import Vue from "vue";
-// import VueAnimateOnScroll from "vue-animate-onscroll";
-// import ArrowLong from "../../components/icons/arrow-long";
-// Vue.use(VueAnimateOnScroll);
 
 export default {
   name: "activityactivity-slug",
@@ -238,9 +230,6 @@ export default {
   @include respond-to(sm) {
     margin-top: 48px;
   }
-}
-.animated-trim {
-  opacity: 0;
 }
 .activity-slug {
   /*background-color: color(black);*/

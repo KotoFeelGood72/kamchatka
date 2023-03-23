@@ -42,9 +42,7 @@
                     >
                         <div v-for="(slide, index) in data" :key="'slide-' + index">
                             <h3
-                                v-animate-onscroll.repeat="'animated fadeInLeft'"
-                                style="animation-delay: 0.2s"
-                                class="info-slider__title animated-trim"
+                                class="info-slider__title"
                             >
                                 <nuxt-link v-if="slide.slug"
                                            :to="$i18n.locale === 'en' ? '/' + url + slide.slug + '/' : url + slide.slug + '/'"
@@ -54,9 +52,7 @@
                                 <a href="javascript:" style="pointer-events: none; border:none" v-html="titleSplit(slide.name)" v-else></a>
                             </h3>
                             <div
-                                v-animate-onscroll.repeat="'animated fadeInLeft'"
-                                style="animation-delay: 0.3s"
-                                class="info-slider__content animated-trim"
+                                class="info-slider__content"
                                 v-html="slide.text"
                             />
                         </div>
@@ -88,9 +84,7 @@
                     >
                         <div v-for="(slide, index) in data" :key="'slide-' + index">
                             <h3
-                                v-animate-onscroll.repeat="'animated fadeInLeft'"
-                                style="animation-delay: 0.2s"
-                                class="info-slider__title animated-trim"
+                                class="info-slider__title"
                             >
                                 <nuxt-link
                                     v-if="slide.slug || url !== undefined"
@@ -101,9 +95,7 @@
                                 <a href="javascript:" style="pointer-events: none; border:none" v-html="titleSplit(slide.name)" v-else></a>
                             </h3>
                             <div
-                                v-animate-onscroll.repeat="'animated fadeInLeft'"
-                                style="animation-delay: 0.3s"
-                                class="info-slider__content animated-trim"
+                                class="info-slider__content"
                                 v-html="slide.text"
                             />
                         </div>
@@ -147,12 +139,8 @@
 
 <script>
     import VideoEmbed from "../content/videoEmbed";
-    // import VueAnimateOnScroll from "vue-animate-onscroll";
-    import Vue from "vue";
-    // import Modal from '../../components/modal/modal';
     import {mapGetters} from 'vuex';
 
-    Vue.use(VueAnimateOnScroll);
     export default {
         name: "infoSliderOutside",
         props: ["data", "url"],
@@ -289,9 +277,6 @@
         }
     }
 
-    .animated-trim {
-        opacity: 0;
-    }
 
     .info-slider__content__slider {
         height: 85%;

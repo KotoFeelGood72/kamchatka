@@ -2,50 +2,32 @@
     <div class="contact-us" :class="classPage" v-if="contactsData">
         <div class="contact-us__row">
             <a
-                v-animate-onscroll.repeat="'animated fadeInLeft'"
-                style="animation-delay: 0.2s" @click.prevent="changeOpenFeedback"
+								@click.prevent="changeOpenFeedback"
                 href=""
-                :class="{'animated-trim' : !menuContacts}"
                 class="contact-us__btn"
                 v-html="contactsData && contactsData.title ? contactsData.title : $t('footer.contactUsTitle')"
             />
             <div class="contact-us__icons">
-                <a v-animate-onscroll.repeat="'animated fadeInLeft'"
+                <a
                    v-if="contactsData && contactsData.socialLinks && contactsData.socialLinks.whatsapp"
-                   style="animation-delay: 0.2s"
                    target="_blank"
                    rel="nofollow"
                    class="contact-us__icon icon-whatsapp"
-                   :class="[{'animated-trim' : !menuContacts}]"
                    :href="contactsData.socialLinks.whatsapp"
-                /><a v-animate-onscroll.repeat="'animated fadeInLeft'"
+                /><a
                      v-if="contactsData && contactsData.socialLinks && contactsData.socialLinks.telegram"
-                     style="animation-delay: 0.2s"
                      target="_blank"
                      rel="nofollow"
                      class="contact-us__icon icon-telegram"
-                     :class="[{'animated-trim' : !menuContacts}]"
                      :href="contactsData.socialLinks.telegram"
             />
-<!--                <a v-animate-onscroll.repeat="'animated fadeInLeft'"-->
-<!--                     v-if="contactsData && contactsData.socialLinks && contactsData.socialLinks.viber"-->
-<!--                     style="animation-delay: 0.2s"-->
-<!--                     target="_blank"-->
-<!--                     rel="nofollow"-->
-<!--                     class="contact-us__icon icon-phone"-->
-<!--                     :class="[{'animated-trim' : !menuContacts}]"-->
-<!--                     :href="contactsData.socialLinks.viber"-->
-<!--                />-->
             </div>
         </div>
         <!-- Телефон и емейл для футера-->
-        <div v-animate-onscroll.repeat="'animated fadeInLeft'" v-if="!notShowContacts" class="contact-us__list" v-html="contactsData.text"></div>
+        <div v-if="!notShowContacts" class="contact-us__list" v-html="contactsData.text"></div>
     </div>
 </template>
 <script>
-// import VueAnimateOnScroll from "vue-animate-onscroll";
-// import Vue from "vue";
-// Vue.use(VueAnimateOnScroll);
 export default {
     name: 'ContactUs',
     props: ['contactsData', 'notShowContacts', 'classPage','menuContacts'],
@@ -86,9 +68,6 @@ export default {
     @import "~@/assets/scss/config";
     @import "~@/assets/scss/mixins";
     @import "wow.js/css/libs/animate.css";
-    .animated-trim{
-        opacity:0;
-    }
     .contact-us {
         font-size: 30px;
         a, a::before {

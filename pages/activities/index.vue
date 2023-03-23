@@ -4,7 +4,7 @@
         <PageHeader class="header__padding activity__header">{{data.intro.bannerText}}</PageHeader>
         <div class="activities__wrap">
             <div class="container--middle-tour page-content text--small">
-                <div v-animate-onscroll.repeat="'animated fadeInLeft'" style="animation-delay: 0.5s" v-if="data.intro && data.intro.introText" v-html="data.intro.introText" class="activity-all__info text--small vlog"/>
+                <div v-if="data.intro && data.intro.introText" v-html="data.intro.introText" class="activity-all__info text--small vlog"/>
                 <div v-for="(item, index) in data.activities" :key="'activity-' + index">
                    <nuxt-link :to="'/activities/' + item.slug + '/'">
                        <client-only>
@@ -13,7 +13,7 @@
                    </nuxt-link>
                    <nuxt-link style="color:#2a2e39" :to="'/activities/' + item.slug + '/'">
                        <client-only>
-                        <div class="vlog subtitling_vlog" v-animate-onscroll.repeat="'animated fadeInLeft'" style="animation-delay: 0.5s" v-if="item.text" v-html="item.text"/>
+                        <div class="vlog subtitling_vlog" v-if="item.text" v-html="item.text"/>
                        </client-only>
                    </nuxt-link>
                     <Heading  color="blue" tag="p" size="md" fw="600" class="activities__link_cont">
@@ -35,9 +35,6 @@ import Heading from '../../components/content/heading';
 import {Api} from '../../api/api';
 import ContentImage from '../../components/content/contentImage';
 import parallax from '../../components/parallax/index';
-// import Vue from 'vue';
-// import VueAnimateOnScroll from 'vue-animate-onscroll';
-// Vue.use(VueAnimateOnScroll);
 
 export default {
     name: 'activityAll',

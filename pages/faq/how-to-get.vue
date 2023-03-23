@@ -9,13 +9,13 @@
                 size="sm"
                 fw="600"
                 underline="bottom" v-html="data.preview.heading"/>
-            <div v-animate-onscroll.repeat="'animated fadeInLeft'" style="animation-delay: 0.3s" class="animated-trim" v-if="data.preview.headingText" v-html="data.preview.headingText"/>
+            <div v-if="data.preview.headingText" v-html="data.preview.headingText"/>
             <contentImage v-if="data.preview.image" width="fullwidth" :data="data.preview.image" isBack="true"/>
 
             <Heading v-if="data.preview.textBlue" color="blue" tag="div" size="xs" fw="600" v-html="data.preview.textBlue"/>
 
             <Heading v-if="data.preview.headingSecond" v-html="data.preview.headingSecond"/>
-            <div v-animate-onscroll.repeat="'animated fadeInLeft'" style="animation-delay: 0.3s" class="animated-trim" v-if="data.preview.headingSecondText" v-html="data.preview.headingSecondText"/>
+            <div v-if="data.preview.headingSecondText" v-html="data.preview.headingSecondText"/>
             <div class="display-flex-number">
                 <div class="display-flex-number__item">
                     <h2 data-v-037ab6d0="" class="heading heading--color-bluekm heading--size-xl">6773<small data-v-037ab6d0="">км</small></h2>
@@ -31,16 +31,16 @@
                     <Heading  v-if="direction.name" color="bluekm" size="xl"><span class="animate-counter">{{ direction.name }}</span><small>{{ direction.unit }}</small></Heading>
                     <Heading class="how-to-get__flight-types-desc" v-if="direction.textBlue" color="bluekm" size="xs" fw="600" v-html="direction.textBlue"/>
                     <Heading v-if="direction.textBlack" tag="p" size="xs" fw="600" color="granite" v-html="direction.textBlack"/>
-                    <p v-animate-onscroll.repeat="'animated fadeInLeft'" style="animation-delay: 0.3s" class=" animated-trim" v-for="(air, index) in direction.airlines" :key="'air-' + index" v-html="air"/>
+                    <p v-for="(air, index) in direction.airlines" :key="'air-' + index" v-html="air"/>
 
                     <Heading v-if="direction.important.length" color="bluekm">{{$t('how-to-get-distance-1.important')}}</Heading>
-                    <p v-animate-onscroll.repeat="'animated fadeInLeft'" style="animation-delay: 0.3s" class="animated-trim" v-for="(important, index) in direction.important" :key="'important-' + index" v-html="important"/>
+                    <p v-for="(important, index) in direction.important" :key="'important-' + index" v-html="important"/>
 
                 </div>
                 <Heading color="bluekm" size="sm" fw="600" v-html="flight.bottomText"/>
             </div>
             <Heading v-html="data.footer.heading"/>
-            <div v-animate-onscroll.repeat="'animated fadeInLeft'" style="animation-delay: 0.3s" class="animated-trim" v-html="data.footer.text"/>
+            <div v-html="data.footer.text"/>
         </div>
     </div>
 </template>
@@ -51,10 +51,7 @@ import Heading from '../../components/content/heading';
 import ContentImage from '../../components/content/contentImage';
 import Divider from '../../components/content/divider';
 import {Api} from '../../api/api';
-// import VueAnimateOnScroll from "vue-animate-onscroll";
-// import Vue from "vue";
 import $ from 'jquery';
-// Vue.use(VueAnimateOnScroll);
 export default {
     name: 'howToGet',
     components: {
@@ -165,9 +162,6 @@ export default {
     @import '~assets/scss/_config.scss';
     @import '~assets/scss/_mixins.scss';
     @import "wow.js/css/libs/animate.css";
-    .animated-trim{
-    opacity: 0;
-    }
     .how-to-get__flight-types {
         &-desc {
             margin-top: 10px!important;

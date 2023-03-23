@@ -3,7 +3,7 @@
         <div class="container">
             <div v-for="(item, index) in data" :key="'according-' + index" class="accordion__item" :class="{'active': item.active}">
                 <div class="accordion__item-head" @click="changeActive(item)">
-                    <span v-animate-onscroll.repeat="'animated fadeInLeft'" style="animation-delay: 0.3s" class="animated-trim" v-if="item.question" v-html="item.question"/>
+                    <span v-if="item.question" v-html="item.question"/>
                     <span v-if="item.name" v-html="item.name"/>
                     <span v-if="item.title" v-html="item.title"/>
                 </div>
@@ -19,9 +19,6 @@
 </template>
 
 <script>
-// import VueAnimateOnScroll from "vue-animate-onscroll";
-// import Vue from "vue";
-// Vue.use(VueAnimateOnScroll);
 export default {
     name: 'according',
     props: ['data'],
@@ -60,9 +57,6 @@ export default {
     @import "~assets/scss/config";
     @import "~assets/scss/mixins";
     @import "wow.js/css/libs/animate.css";
-    .animated-trim{
-    opacity: 0;
-    }
     .accordion {
         counter-reset: faq-counter;
         margin: 30px 0;

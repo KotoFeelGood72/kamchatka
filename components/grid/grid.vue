@@ -2,11 +2,10 @@
     <div v-if="data.length" class="row">
         <div v-for="(item, index) in data" class="col-12" :class="['col-xl-' + dataCol[isMobile][data.length][index], 'col-sm-' + dataCol[isMobile][data.length][index]]" :key="item.id">
             <nuxt-link
-                v-animate-onscroll.repeat="'animated fadeInLeft'"
                 :to="urlParent !== undefined ? $i18n.locale === 'en' ? urlParent + item.slug + '/' : urlParent + item.slug + '/' : `${ item.slug}/`" class="grid-item animate-trim">
                 <img-com  :img="item.img" classImg="grid-image"/>
                 <div class="grid-name">
-                    <span class="animate-trim" v-animate-onscroll.repeat="'animated fadeInLeft'">{{item.name}}</span>
+                    <span>{{item.name}}</span>
                 </div>
             </nuxt-link>
         </div>
@@ -35,9 +34,6 @@
     import Heading from "../content/heading";
     import HeadingStep from "../content/headingStep";
     import Vodal from 'vodal';
-    import Vue from 'vue'
-    // import VueAnimateOnScroll from 'vue-animate-onscroll'
-    // Vue.use(VueAnimateOnScroll)
     export default {
         name: "grid",
         components: {Heading,Vodal,HeadingStep},

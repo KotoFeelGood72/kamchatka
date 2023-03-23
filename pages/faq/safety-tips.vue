@@ -25,7 +25,7 @@
                              size="sm"
                              fw="600"
                              v-html="item.title"/>
-                    <div v-animate-onscroll.repeat="'animated fadeInLeft'" style="animation-delay: 0.3s" class="safety-tips__text animated-trim" v-if="item.text" v-html="item.text"/>
+                    <div class="safety-tips__text" v-if="item.text" v-html="item.text"/>
                     <divider v-if="i === 1 && index === 0"/>
                     <contentImage class="safety-tips__img" isBack="true" v-if="item.img" width="fullwidth" :data="item.img"/>
                 </div>
@@ -40,9 +40,6 @@ import Heading from '../../components/content/heading';
 import ContentImage from '../../components/content/contentImage';
 import Divider from '../../components/content/divider';
 import {Api} from '../../api/api';
-// import VueAnimateOnScroll from "vue-animate-onscroll";
-// import Vue from "vue";
-// Vue.use(VueAnimateOnScroll);
 export default {
     name: 'entryRules',
     components: {
@@ -119,10 +116,6 @@ export default {
         }
     }
 
-
-    .animated-trim{
-    opacity: 0;
-}
     .faq-content {
         @include respond-to(md) {
             background-image: none;

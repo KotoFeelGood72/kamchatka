@@ -20,7 +20,7 @@
           fw="600"
           v-html="entry.title"
         />
-        <div  v-animate-onscroll.repeat="'animated fadeInLeft'" style="animation-delay: 0.3s" class="animated-trim" v-if="entry.text" v-html="entry.text" />
+        <div v-if="entry.text" v-html="entry.text" />
         <contentImage isBack="true" v-if="entry.img" width="fullwidth" :data="entry.img" />
       </div>
       <divider type="double" align="center" />
@@ -34,9 +34,6 @@ import Heading from "../../components/content/heading";
 import ContentImage from "../../components/content/contentImage";
 import Divider from "../../components/content/divider";
 import { Api } from "../../api/api";
-// import VueAnimateOnScroll from "vue-animate-onscroll";
-// import Vue from "vue";
-// Vue.use(VueAnimateOnScroll);
 
 export default {
   name: "entryRules",
@@ -111,9 +108,6 @@ export default {
 @import "~assets/scss/_config.scss";
 @import "~assets/scss/_mixins.scss";
 @import "wow.js/css/libs/animate.css";
-.animated-trim{
-    opacity: 0;
-}
 .container--middle {
   @include respond-to(lg) {
     max-width: initial !important;

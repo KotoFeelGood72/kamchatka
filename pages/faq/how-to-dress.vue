@@ -5,19 +5,19 @@
             <div v-for="(intro, index) in data.intro" :key="'intro-' + index">
                 <div class="how-to-dress__intro">
                     <Heading v-if="intro.title" tag="h2" class="text--header how-to-dress__title" v-html="intro.title"/>
-                    <div v-animate-onscroll.repeat="'animated fadeInLeft'" style="animation-delay: 0.3s" v-if="intro.text" class="how-to-dress__text animated-trim" v-html="intro.text"/>
+                    <div v-if="intro.text" class="how-to-dress__text" v-html="intro.text"/>
                 </div>
                 <ContentImage :class="{'how-to-dress__intro-img': index !== 0}" v-if="intro.img" width="fullwidth" isBack="true" :data="intro.img"/>
             </div>
         </div>
         <div class="container--middle">
-            <div v-animate-onscroll.repeat="'animated fadeInLeft'" style="animation-delay: 0.3s" class="text animated-trim" v-if="data.howToDressDescription" v-html="data.howToDressDescription"/>
+            <div class="text" v-if="data.howToDressDescription" v-html="data.howToDressDescription"/>
             <hr v-if="data.howToDressDescription" class="line">
         </div>
         <div v-for="(advices, index) in data.advices" :key="'advices-' + index">
             <div class="container--middle how-to-dress__description ">
                 <Heading v-if="advices.name" tag="h2" class="text--header how-to-dress__title" v-html="advices.name"/>
-                <div v-animate-onscroll.repeat="'animated fadeInLeft'" style="animation-delay: 0.3s" v-if="advices.text" class="how-to-dress__text animated-trim" v-html="advices.text"/>
+                <div v-if="advices.text" class="how-to-dress__text" v-html="advices.text"/>
             </div>
             <According :data="advices.items" :key="'according-advices' + index" class="accordion_icon accordion_border-top accordion_border-top how-to-dress__accordion"/>
         </div>
@@ -30,9 +30,6 @@ import According from '../../components/according/according';
 import {Api} from '../../api/api';
 import Heading from '../../components/content/heading';
 import ContentImage from '../../components/content/contentImage';
-// import VueAnimateOnScroll from "vue-animate-onscroll";
-// import Vue from "vue";
-// Vue.use(VueAnimateOnScroll);
 export default {
     name: 'howToDress',
     components: {
@@ -111,9 +108,7 @@ export default {
     @import "~assets/scss/config";
     @import "~assets/scss/mixins";
     @import "wow.js/css/libs/animate.css";
-    .animated-trim{
-        opacity: 0;
-    }
+
     .faq-content {
         @include respond-to(md) {
             background-image: none;

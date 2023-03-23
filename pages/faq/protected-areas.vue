@@ -11,15 +11,15 @@
                          class="heading--title"
                          underline="bottom" v-html="intro.title"/>
                 <Heading v-if="!intro.underlineTitle" v-html="intro.title"/>
-                <div v-animate-onscroll.repeat="'animated fadeInLeft'" style="animation-delay: 0.3s" class="animated-trim text-controllerfaqprotected" v-if="intro.text" v-html="intro.text"/>
+                <div class="text-controllerfaqprotected" v-if="intro.text" v-html="intro.text"/>
                 <contentImage v-if="intro.img" isBack="true" width="fullwidth" :data="intro.img"/>
             </div>
             <div v-for="(area, index) in data.areas" :key="'area-' + index">
                 <Heading color="blue" v-html="area.name"/>
-                <div v-animate-onscroll.repeat="'animated fadeInLeft'" style="animation-delay: 0.3s" class="animated-trim text-controllerfaqprotected" v-html="area.text"/>
+                <div class="text-controllerfaqprotected" v-html="area.text"/>
                 <div v-for="(item, index) in area.items" :key="'item-' + index">
                     <Heading v-if="item.title" v-html="item.title"/>
-                    <div v-animate-onscroll.repeat="'animated fadeInLeft'" style="animation-delay: 0.3s" class="animated-trim text-controllerfaqprotected" v-if="item.text" v-html="item.text"/>
+                    <div class="text-controllerfaqprotected" v-if="item.text" v-html="item.text"/>
                     <contentImage v-if="item.img" width="fullwidth" isBack="true" :data="item.img"/>
                 </div>
                 <divider v-if="index != data.areas.length -1"/>
@@ -36,9 +36,6 @@ import Heading from '../../components/content/heading';
 import ContentImage from '../../components/content/contentImage';
 import Divider from '../../components/content/divider';
 import {Api} from '../../api/api';
-// import VueAnimateOnScroll from "vue-animate-onscroll";
-// import Vue from "vue";
-// Vue.use(VueAnimateOnScroll);
 
 export default {
     name: 'protectedAreas',
@@ -96,9 +93,6 @@ export default {
         font-family: "Montserrat";
         font-weight: 400;
         line-height: 1.5;
-    }
-    .animated-trim{
-        opacity: 0;
     }
     .container--middle {
         @include respond-to(lg) {

@@ -1,16 +1,16 @@
 <template>
     <div v-if="data.length" class="row">
         <div v-for="(item, index) in data" class="col-12" :class="['col-xl-' + dataCol[isMobile][data.length][index], 'col-sm-' + dataCol[isMobile][data.length][index]]" :key="item.id">
-            <nuxt-link v-animate-onscroll.repeat="'animated fadeInLeft'" v-if="urlParent" :to="$i18n.locale === 'en' ? '/'+ urlParent + + item.slug + '/' : urlParent + item.slug + '/'" class="grid-item animate-trim">
+            <nuxt-link v-if="urlParent" :to="$i18n.locale === 'en' ? '/'+ urlParent + + item.slug + '/' : urlParent + item.slug + '/'" class="grid-item animate-trim">
                 <img-com  :img="item.img" classImg="grid-image"/>
                 <div class="grid-name">
-                    <span class="animate-trim" v-animate-onscroll.repeat="'animated fadeInLeft'">{{item.name}}</span>
+                    <span>{{item.name}}</span>
                 </div>
             </nuxt-link>
-            <div v-animate-onscroll.repeat="'animated fadeInLeft'" v-if="!urlParent" class="grid-item animate-trim">
+            <div v-if="!urlParent" class="grid-item">
                 <img-com :img="item.img" classImg="grid-image"/>
                 <div @click="changeActiveItem(item)" class="grid-name" :class="{'no-cursor': !isPopup}">
-                    <span v-animate-onscroll.repeat="'animated fadeInLeft'" class="animate-trim">{{item.name}}</span>
+                    <span>{{item.name}}</span>
                 </div>
             </div>
         </div>

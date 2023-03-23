@@ -9,7 +9,7 @@
 
         <div class="header__menu" :class="{'active': menuStatus}">
             <transition name="base-header">
-                <div v-on-clickaway="clearFocus" class="header__menu-container" v-if="menuStatus">
+                <div class="header__menu-container" v-if="menuStatus">
                     <p class="header__menu-item" v-for="(item, index) in menu" :key="'menu-' + index">
                         <nuxt-link :to="localePath(item.link) + '/'" v-html="$t(item.name)"/>
                     </p>
@@ -26,13 +26,13 @@
     import ContactUs from "./ContactUs";
     import Socials from "./Socials";
     import SearchModal from "../../components/search/searchModal";
-    import {mixin as clickaway} from "vue-clickaway";
+    // import {mixin as clickaway} from "vue-clickaway";
     import Lang from "./lang";
     import {mapState, mapActions, mapMutations} from 'vuex'
 
     export default {
         name: "Menu",
-        mixins: [clickaway],
+        // mixins: [clickaway],
         components: {Lang, SearchModal, Socials, ContactUs},
         data() {
             return {

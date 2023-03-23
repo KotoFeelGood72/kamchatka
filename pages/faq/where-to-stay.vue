@@ -14,7 +14,7 @@
             <Heading tag="p" size="sm" color="blue" fw="600" v-if="data.intro && data.intro.text" v-html="data.intro.text"/>
             <div v-for="(place, index) in data.places" :key="'place' + index">
                 <Heading v-if="place.title" color="blue" size="md" v-html="place.title"/>
-                <p v-animate-onscroll.repeat="'animated fadeInLeft'" style="animation-delay: 0.3s" class="animated-trim" v-if="place.topText" v-html="place.topText"/>
+                <p v-if="place.topText" v-html="place.topText"/>
 
                 <div v-if="place.statisticTop && place.statisticTop.length" class="row">
                     <div v-for="(statisticTop, index) in place.statisticTop" :key="'statisticTop-' + index" class="col-sm-6">
@@ -29,10 +29,10 @@
                 <Heading v-if="place.statisticBottom && place.statisticBottom.text" size="xs" fw="600" v-html="place.statisticBottom.text"/>
 
                 <Heading v-if="place.showplaces" size="md">{{place.showplacesTitle}}</Heading>
-                <div v-animate-onscroll.repeat="'animated fadeInLeft'" style="animation-delay: 0.3s" class="animated-trim text-controllerfaq" v-if="place.showplaces" v-html="place.showplaces"/>
+                <div class="text-controllerfaq" v-if="place.showplaces" v-html="place.showplaces"/>
 
                 <Heading v-if="place.infrastructure" size="md">{{place.infrastructureTitle}}</Heading>
-                <div v-animate-onscroll.repeat="'animated fadeInLeft'" style="animation-delay: 0.3s" class="animated-trim text-controllerfaq" v-if="place.infrastructure" v-html="place.infrastructure"/>
+                <div class="text-controllerfaq" v-if="place.infrastructure" v-html="place.infrastructure"/>
 
                 <Divider v-if="place.divider" type="lightblue"/>
             </div>
@@ -46,10 +46,7 @@ import Heading from '../../components/content/heading';
 import ContentImage from '../../components/content/contentImage';
 import Divider from '../../components/content/divider';
 import {Api} from '../../api/api';
-// import VueAnimateOnScroll from "vue-animate-onscroll";
-// import Vue from "vue";
 import $ from 'jquery';
-// Vue.use(VueAnimateOnScroll);
 
 export default {
     name: 'howToGet',
@@ -163,9 +160,6 @@ export default {
         font-family: "Montserrat";
         font-weight: 400;
         line-height: 1.5;
-    }
-    .animated-trim{
-        opacity: 0;
     }
     .faq-content {
         @include respond-to(md) {

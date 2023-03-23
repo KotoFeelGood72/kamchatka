@@ -20,7 +20,7 @@
                         </div>
                         <div class="col-6 blog__list-info">
                             <Heading tag="h2" size="xs" fw="600" color="craiola">{{article.name}}</Heading>
-                            <p v-animate-onscroll.repeat="'animated fadeInLeft'" style="animation-delay: 0.3s" class="blog__list-text animated-trim" v-if="article.text" v-html="article.text"/>
+                            <p class="blog__list-text" v-if="article.text" v-html="article.text"/>
                             <div class="blog__list-detailed">{{$t('blogPage.detalInfoBlog')}}</div>
                         </div>
                     </nuxt-link>
@@ -37,9 +37,6 @@ import ContentImage from '../../components/content/contentImage';
 import {Api} from '../../api/api';
 import PageHeader from '../../components/content/pageHeader';
 import parallax from '../../components/parallax/index';
-// import VueAnimateOnScroll from "vue-animate-onscroll";
-// import Vue from "vue";
-// Vue.use(VueAnimateOnScroll);
 
 export default {
     name: 'blog',
@@ -148,9 +145,6 @@ export default {
     @import "~assets/scss/config";
     @import "~assets/scss/mixins";
     @import "wow.js/css/libs/animate.css";
-    .animated-trim{
-        opacity:0
-    }
     .blog__menu-active {
         color: color(lightBlue) !important;
         border-bottom: 1px solid;

@@ -7,7 +7,7 @@
               <div class="container--middle-tour page-content text--24 about-us__bg_without_pb">
                   <div v-for="(textBlock, index) in about.intro.textBlocks" :key="'text-block-' + index">
                     <Heading tag="h2" class="text--40" color="lightBlue" v-html="textBlock.title"/>
-                    <p v-animate-onscroll.repeat="'animated fadeInLeft'" style="animation-delay: 0.4s" class="text--24 animated-trim" v-html="textBlock.text"/>
+                    <p class="text--24" v-html="textBlock.text"/>
                     <Heading />
                     <videoEmbed isContainer="true" v-if="textBlock.video && textBlock.img" :url="textBlock.video" :data="textBlock.img" />
                     <ContentImage width="fullwidth" v-if="textBlock.img && !textBlock.video" isBack="true" :data="textBlock.img"/>
@@ -32,7 +32,7 @@
                     <div class="about-us__advantages-content col-md-8 col-lg-6">
                         <div v-for="(item, index) in about.advantages" :key="'about-us__advantages-' + index">
                             <Heading tag="h2" color="white" size="md" v-html="item.name"/>
-                            <p v-animate-onscroll.repeat="'animated fadeInLeft'" style="animation-delay: 0.4s" class="text--24 animated-trim" v-html="item.text"/>
+                            <p class="text--24" v-html="item.text"/>
                         </div>
                     </div>
                     <div class="about-us__advantages-img col-md-4 offset-lg-1 d-none d-md-block">
@@ -144,9 +144,6 @@ export default {
     @import "~assets/scss/config";
     @import "~assets/scss/mixins";
     @import "wow.js/css/libs/animate.css";
-    .animated-trim{
-        opacity: 0;
-    }
     .text--24 {
         font-size: 24px;
         line-height: 1.5;

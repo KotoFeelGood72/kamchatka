@@ -1,13 +1,10 @@
 <template>
-    <component :is="this.tag ? this.tag : 'h2'" :class="classes" v-animate-onscroll.repeat="'animated fadeIn'" style="animation-delay: 0.3s">
+    <component :is="this.tag ? this.tag : 'h2'" :class="classes">
         <slot/>
     </component>
 </template>
 
 <script>
-// import Vue from 'vue';
-// import VueAnimateOnScroll from 'vue-animate-onscroll';
-// Vue.use(VueAnimateOnScroll);
 export default {
 
     name: 'heading',
