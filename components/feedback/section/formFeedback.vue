@@ -39,49 +39,10 @@
                 </div>
             </div>
             <div class="row">
-<!--                <div class="col-sm-6 col-md-3 feedback__field" :class="{'error-field' : errorPhoneCode && !model.phoneCode}">-->
-<!--                    <select v-model="model.phoneCode" :class="{'not-empty': model.phoneCode}" class="feedback__field-select">-->
-<!--                        <option-->
-<!--                            v-for="(code, id) in codeCountries"-->
-<!--                            :value="code.code"-->
-<!--                            :key="`code-${id}`"-->
-<!--                        >-->
-<!--                            {{ code.name }} {{ code.code }}-->
-<!--                        </option>-->
-<!--                    </select>-->
-<!--                    <span class="bar"/>-->
-<!--                    <label class="feedback-modal-prehover" for="feedbackTel" v-html="$t('feedback.code')"/>-->
-<!--                    <span class="error"-->
-<!--                          v-if="errorPhoneCode && !model.phoneCode"-->
-<!--                          v-html="$t('feedback.empty')"/>-->
-<!--                </div>-->
                 <div
                     class="col-sm-6 col-md-6 feedback__field"
                     :class="{'error-field' : errorPhone && !model.phone}"
                 >
-<!--                    <input-mask-->
-<!--                        v-model="model.phone"-->
-<!--                        id="feedbackTel"-->
-<!--                        autocomplete="false"-->
-<!--                        mask="(999)999-99-99"-->
-<!--                        maskChar="_"-->
-<!--                        required="true"-->
-<!--                        name="tel"-->
-<!--                        type="text"-->
-<!--                    ></input-mask>-->
-<!--                    <input-mask-->
-<!--                        v-if="$i18n.locale === 'ru'"-->
-<!--                        v-model="model.phone"-->
-<!--                        id="feedbackTel"-->
-<!--                        autocomplete="false"-->
-<!--                        mask="+7(999)999-99-99"-->
-<!--                        maskChar="_"-->
-<!--                        required="true"-->
-<!--                        name="tel"-->
-<!--                        type="text"-->
-<!--                    ></input-mask>-->
-<!--                        v-else-->
-
                     <input-mask
                         v-model="model.phone"
                         id="feedbackTel"
@@ -123,7 +84,7 @@
                     />
                 </div>
             </div>
-            <div class="row" v-if="!notDateAndCountPeople">
+            <!-- <div class="row" v-if="!notDateAndCountPeople">
                 <div
                     class="col-sm-12 col-md-6 feedback__field"
                     :class="{'error-field' : errorDateFrom && !model.dateFrom }"
@@ -170,7 +131,7 @@
                     <label class="feedback-modal-prehover" for="feedbackCountPeople" v-html="$t('feedback.countPeople')"/>
                     <span class="error" v-if="errorCountPeople && !model.countPeople" v-html="$t(errorCountPeople)"/>
                 </div>
-            </div>
+            </div> -->
             <div class="row">
                 <div class="col-12 feedback__field feedback__field-comment">
                   <textarea
@@ -234,17 +195,17 @@
 <script>
 import {Api} from "../../../api/api";
 import animButton from "../../../components/button/button";
-import DatePicker from 'vue2-datepicker';
-import 'vue2-datepicker/index.css';
+// import DatePicker from 'vue2-datepicker';
+// import 'vue2-datepicker/index.css';
 import $ from 'jquery';
-import codeCountriesJson from "../../../assets/code.json"
+// import codeCountriesJson from "../../../assets/code.json"
 
 export default {
     name: "formFeedback",
-    props: ["idForm", "dataForm3", "notDateAndCountPeople"],
+    props: ["idForm", "dataForm3"],
     components: {
         animButton,
-        DatePicker
+        // DatePicker
     },
     data() {
         return {
@@ -256,7 +217,7 @@ export default {
                 comment: "",
                 city: "",
                 checked: true,
-                dateFrom: '',
+                // dateFrom: '',
                 countPeople: ''
             },
             modelName: {},
@@ -264,14 +225,14 @@ export default {
             errorFio: "",
             errorCode: "",
             errorCountPeople: "",
-            errorDateFrom: "",
+            // errorDateFrom: "",
             errorPhone: "",
             errorPhoneCode: "",
             errorChecked: "",
             activeButton: true,
             finish: false,
-            barDatePicker: false,
-            codeCountries: {},
+            // barDatePicker: false,
+            // codeCountries: {},
         };
     },
     created() {
@@ -280,15 +241,15 @@ export default {
                 fio: "form_text_1",
                 phone: "form_text_2",
                 email: "form_text_3",
-                dateFrom: "form_date_36",
+                // dateFrom: "form_date_36",
                 countPeople: 'form_text_37',
                 comment: "form_textarea_5",
                 link: "form_text_29"
             };
         } else {
             this.modelName = {
-                dateFrom: "form_text_16",
-                dateTo: "form_text_17",
+                // dateFrom: "form_text_16",
+                // dateTo: "form_text_17",
                 adult: "form_text_18",
                 children: "form_text_19",
                 format: "form_text_21",
@@ -312,14 +273,14 @@ export default {
             .catch(error => {
                 console.log(error);
             });
-        this.codeCountries = codeCountriesJson.countries;
+        // this.codeCountries = codeCountriesJson.countries;
     },
     methods: {
-        nowDateFunc(date) {
-            let nowDate = new Date();
-            let nowDateStr = nowDate.toISOString().substr(0, 10);
-            return date < new Date(nowDateStr + 'T00:00:00.000');
-        },
+        // nowDateFunc(date) {
+        //     let nowDate = new Date();
+        //     let nowDateStr = nowDate.toISOString().substr(0, 10);
+        //     return date < new Date(nowDateStr + 'T00:00:00.000');
+        // },
         validateEmail(email) {
             var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             return re.test(String(email).toLowerCase());
@@ -379,12 +340,13 @@ export default {
             } else {
                 this.errorCountPeople = "";
             }
-            if (!this.model.dateFrom) {
-                isValidate = false;
-                this.errorDateFrom = "feedback.empty";
-            } else {
-                this.errorDateFrom = "";
-            }
+            // if (!this.model.dateFrom) {
+            //     isValidate = false;
+            //     this.errorDateFrom = "feedback.empty";
+            // }
+						//  else {
+            //     this.errorDateFrom = "";
+            // }
             return isValidate;
         },
         submitForm() {
@@ -403,7 +365,7 @@ export default {
                 formData.append(this.modelName.phone, this.model.phone);
                 formData.append(this.modelName.email, this.model.email);
                 formData.append(this.modelName.comment, this.model.comment);
-                formData.append(this.modelName.dateFrom, this.model.dateFrom.toLocaleDateString());
+                // formData.append(this.modelName.dateFrom, this.model.dateFrom.toLocaleDateString());
                 formData.append(this.modelName.countPeople, this.model.countPeople);
                 formData.append(this.modelName.link, this.$route.path);
                 formData.append("sessid", sessid);
@@ -415,8 +377,8 @@ export default {
                         locationName += `<li>${this.dataForm3.locations[i].name}</li>`
                     }
                     locationName += '</ol>'
-                    formData.append(this.modelName.dateFrom, this.dataForm3.dateFrom);
-                    formData.append(this.modelName.dateTo, this.dataForm3.dateTo);
+                    // formData.append(this.modelName.dateFrom, this.dataForm3.dateFrom);
+                    // formData.append(this.modelName.dateTo, this.dataForm3.dateTo);
                     formData.append(this.modelName.adult, this.dataForm3.adult);
                     formData.append(this.modelName.children, this.dataForm3.children);
                     formData.append(this.modelName.format, this.dataForm3.format);
@@ -440,7 +402,7 @@ export default {
                         phoneNumber: this.model.phone,
                         email: this.model.email,
                         subject: sub,
-                        start: this.model.dateFrom.toLocaleDateString(),
+                        // start: this.model.dateFrom.toLocaleDateString(),
                         count: this.model.countPeople,
                         comment: this.model.comment,
                         requestUrl: location.href,

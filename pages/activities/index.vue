@@ -133,7 +133,6 @@ export default {
 <style lang="scss" scoped>
     @import "~@/assets/scss/mixins";
     @import "~@/assets/scss/config";
-    @import "wow.js/css/libs/animate.css";
     .page-header {
         position: relative;
         min-height: calc(100vh - 100px);

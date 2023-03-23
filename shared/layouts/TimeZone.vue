@@ -37,7 +37,6 @@ export default {
 <style lang="scss">
     @import "~@/assets/scss/config";
     @import "~@/assets/scss/mixins";
-    @import "wow.js/css/libs/animate.css";
     .timezone {
         font-size: 30px;
         font-weight: 900;

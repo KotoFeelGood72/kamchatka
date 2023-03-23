@@ -155,7 +155,6 @@ export default {
 <style lang="scss" scoped>
     @import "~assets/scss/config";
     @import "~assets/scss/mixins";
-    @import "wow.js/css/libs/animate.css";
     .text-controllerfaq{
         font-family: "Montserrat";
         font-weight: 400;

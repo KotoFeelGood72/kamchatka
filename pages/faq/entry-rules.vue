@@ -107,7 +107,6 @@ export default {
 <style lang="scss" scoped>
 @import "~assets/scss/_config.scss";
 @import "~assets/scss/_mixins.scss";
-@import "wow.js/css/libs/animate.css";
 .container--middle {
   @include respond-to(lg) {
     max-width: initial !important;

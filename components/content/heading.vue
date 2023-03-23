@@ -36,10 +36,6 @@ export default {
 <style lang="scss">
     @import "~@/assets/scss/mixins";
     @import "~@/assets/scss/config";
-    @import "wow.js/css/libs/animate.css";
-    .animate-trim{
-        opacity: 0;
-    }
     .heading {
         font-weight: 800;
         font-size: 50px;

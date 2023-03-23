@@ -56,7 +56,6 @@ export default {
 <style lang="scss" scoped>
     @import "~assets/scss/config";
     @import "~assets/scss/mixins";
-    @import "wow.js/css/libs/animate.css";
     .accordion {
         counter-reset: faq-counter;
         margin: 30px 0;

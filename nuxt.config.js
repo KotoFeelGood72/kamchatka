@@ -54,7 +54,7 @@ export default {
                 }
             ],
             loadLanguagesAsync: true,
-            langDir: '/lang/',
+            langDir: '~lang/',
             defaultLocale: 'ru',
             differentDomains: true,
             detectBrowserLanguage: false

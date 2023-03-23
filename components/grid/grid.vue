@@ -302,12 +302,8 @@
     @import "~@/assets/scss/mixins";
     @import "~@/assets/scss/config";
     @import "vodal/common.css";
-    @import "wow.js/css/libs/animate.css";
     /deep/.img__container {
         height: 100%;
-    }
-    .animate-trim{
-        opacity:0;
     }
     .grid {
 

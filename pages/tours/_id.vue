@@ -433,7 +433,6 @@ export default {
 <style lang="scss" scoped>
 @import "~@/assets/scss/mixins";
 @import "~@/assets/scss/config";
-@import "wow.js/css/libs/animate.css";
 // Fix__rublia
 
 /deep/ .inner_video {

@@ -39,16 +39,6 @@ export default {
 <style lang="scss">
     @import "~@/assets/scss/mixins";
     @import "~@/assets/scss/config";
-    @import "wow.js/css/libs/animate.css";
-       .animate-route{
-                animation-delay: 5s;
-        }
-        .animate-load{
-    animation-delay: 2.5s;
-        }
-    .animate-trim{
-        opacity: 0;
-    }
     .heading {
         font-weight: 800;
         font-size: 50px;

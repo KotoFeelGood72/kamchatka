@@ -228,7 +228,6 @@ export default {
 <style lang="scss" scoped>
 @import "~assets/scss/config";
 @import "~assets/scss/mixins";
-@import "wow.js/css/libs/animate.css";
 /deep/ .container {
   width: 1200px;
   max-width: initial;

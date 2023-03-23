@@ -185,7 +185,6 @@ export default {
 <style lang="scss" scoped>
     @import "~assets/scss/config";
     @import "~assets/scss/mixins";
-    @import "wow.js/css/libs/animate.css";
     .create-map_location{
         width: 100%;
         height: 550px;

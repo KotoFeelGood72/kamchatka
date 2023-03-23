@@ -67,7 +67,6 @@ export default {
 <style lang="scss">
     @import "~@/assets/scss/config";
     @import "~@/assets/scss/mixins";
-    @import "wow.js/css/libs/animate.css";
     .contact-us {
         font-size: 30px;
         a, a::before {

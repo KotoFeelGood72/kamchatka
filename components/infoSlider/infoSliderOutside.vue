@@ -233,7 +233,6 @@
 <style lang="scss" scoped>
     @import "~assets/scss/config";
     @import "~assets/scss/mixins";
-    @import "wow.js/css/libs/animate.css";
     .info-slikersl{
         width:100vw;
         position: relative;

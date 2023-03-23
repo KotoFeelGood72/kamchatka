@@ -143,7 +143,6 @@ export default {
 <style lang="scss" scoped>
     @import "~assets/scss/config";
     @import "~assets/scss/mixins";
-    @import "wow.js/css/libs/animate.css";
     .text--24 {
         font-size: 24px;
         line-height: 1.5;

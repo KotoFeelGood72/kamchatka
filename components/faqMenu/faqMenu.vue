@@ -66,13 +66,6 @@ export default {
 <style lang="scss" scoped>
 @import "~assets/scss/config";
 @import "~assets/scss/mixins";
-@import "wow.js/css/libs/animate.css";
-.animate-route {
-  animation-delay: 5s;
-}
-.animate-load {
-  animation-delay: 2.5s;
-}
 .faq-menu {
   overflow-x: hidden;
 }

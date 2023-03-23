@@ -92,7 +92,6 @@ export default {
 <style lang="scss" scoped>
     @import "~assets/scss/config";
     @import "~assets/scss/mixins";
-    @import "wow.js/css/libs/animate.css";
     .heading--title {
         margin-top:60px;
         line-height: 1.5;

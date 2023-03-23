@@ -161,7 +161,6 @@ export default {
 <style lang="scss" scoped>
     @import '~assets/scss/_config.scss';
     @import '~assets/scss/_mixins.scss';
-    @import "wow.js/css/libs/animate.css";
     .how-to-get__flight-types {
         &-desc {
             margin-top: 10px!important;

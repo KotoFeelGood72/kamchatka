@@ -144,7 +144,6 @@ export default {
 <style lang="scss" scoped>
     @import "~assets/scss/config";
     @import "~assets/scss/mixins";
-    @import "wow.js/css/libs/animate.css";
     .blog__menu-active {
         color: color(lightBlue) !important;
         border-bottom: 1px solid;
