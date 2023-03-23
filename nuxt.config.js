@@ -34,7 +34,6 @@ export default {
 
     modules: [
         '@nuxt/image',
-        // '@nuxtjs/svg',
         '@nuxtjs/gtm',
         ['nuxt-i18n', {
             lazy:true,
@@ -107,26 +106,26 @@ export default {
                 }
             }
         },
-				extend(config, { isDev, isClient }) {
-					config.resolve.alias["vue$"] = "vue/dist/vue.esm.js";
+				// extend(config, { isDev, isClient }) {
+				// 	config.resolve.alias["vue$"] = "vue/dist/vue.esm.js";
 
-					// проверяем, определено ли свойство module.rules
-					if (config.module.rules) {
-						const cssRule = config.module.rules.find(rule => rule.test.test('.css'))
-						if (cssRule && cssRule.use) {
-							cssRule.use.unshift('style-loader')
-						}
-					}
+				// 	// проверяем, определено ли свойство module.rules
+				// 	if (config.module.rules) {
+				// 		const cssRule = config.module.rules.find(rule => rule.test.test('.css'))
+				// 		if (cssRule && cssRule.use) {
+				// 			cssRule.use.unshift('style-loader')
+				// 		}
+				// 	}
 
-					if (isDev && isClient) {
-						config.module.rules.push({
-							enforce: 'pre',
-							test: /\.(js|vue)$/,
-							loader: 'eslint-loader',
-							exclude: /(node_modules)/
-						})
-					}
-				}
+				// 	if (isDev && isClient) {
+				// 		config.module.rules.push({
+				// 			enforce: 'pre',
+				// 			test: /\.(js|vue)$/,
+				// 			loader: 'eslint-loader',
+				// 			exclude: /(node_modules)/
+				// 		})
+				// 	}
+				// }
 
     },
     router: {
