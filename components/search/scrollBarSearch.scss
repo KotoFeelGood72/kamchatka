@@ -1,0 +1,22 @@
+.search-modal {
+  .vue-scrollbar__wrapper {
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    background: transparent;
+  }
+
+  .vue-scrollbar-transition, .vue-scrollbar__scrollbar-horizontal, .vue-scrollbar__scrollbar-vertical {
+    transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -webkit-transition: all .5s ease;
+    -o-transition: all .5s ease;
+  }
+
+  .vue-scrollbar__scrollbar-vertical .scrollbar {
+    width: 4px;
+    border-radius: 10px;
+    background: #FEFEFE;
+    float: right;
+  }
+}

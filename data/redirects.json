@@ -1,0 +1,26 @@
+[
+    {
+        "from": "/tours",
+        "to": "/tours/"
+    },
+    {
+        "from": "/activities",
+        "to": "/activities/"
+    },
+    {
+        "from": "/about",
+        "to": "/about/"
+    },
+    {
+        "from": "/faq",
+        "to": "/faq/"
+    },
+    {
+        "from": "/blog",
+        "to": "/blog/"
+    },
+    {
+        "from": "/contacts",
+        "to": "/contacts/"
+    }
+]

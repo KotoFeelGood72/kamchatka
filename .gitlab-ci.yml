@@ -1,0 +1,48 @@
+cache:
+  key: $CI_COMMIT_REF_NAME
+  paths:
+    - node_modules
+
+build:
+  image: node:14
+  stage: build
+  script:
+    - npm install
+    - npm ci
+    - npm run build
+  artifacts:
+    expire_in: 1 week
+    paths:
+      - .nuxt
+
+deploy_staging:
+  image: alpine
+  stage: deploy
+  script:
+    - apk add rsync openssh
+    - mkdir -p ~/.ssh
+    - echo "$PROD_PRIVATE_KEY" >> ~/.ssh/id_rsa
+    - chmod 600 ~/.ssh/id_rsa
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+    - rsync -a --delete ./ deploy@$PROD_HOST:$DEV_HOST_PATH
+    - ssh deploy@$PROD_HOST "cd $DEV_HOST_PATH && pm2 delete '$DEV_APP_NAME' && pm2 start npm --name '$DEV_APP_NAME' -- run start -- --port 3001"
+  environment:
+    name: staging
+  only:
+    - development
+
+deploy_production:
+  image: alpine
+  stage: deploy
+  script:
+    - apk add rsync openssh
+    - mkdir -p ~/.ssh
+    - echo "$PROD_PRIVATE_KEY" >> ~/.ssh/id_rsa
+    - chmod 600 ~/.ssh/id_rsa
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+    - rsync -a --delete ./ deploy@$PROD_HOST:$PROD_HOST_PATH
+    - ssh deploy@$PROD_HOST "cd $PROD_HOST_PATH && pm2 delete '$APP_NAME' && pm2 start npm --name '$APP_NAME' -- run start -- --port 3000"
+  environment:
+    name: production
+  only:
+    - master
